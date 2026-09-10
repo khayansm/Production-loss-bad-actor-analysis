@@ -1,0 +1,10 @@
+﻿asset_criticality,criticality_definition,notification_priority,priority_label,defect_status,risk_class,risk_sort_order,risk_color_group,source_matrix_band,risk_interpretation
+A,Failure can stop or severely restrict total mill production or a plant-wide critical function.,1,HIGH,Fault,R1,1,RED,A,Critical asset with fault / imminent functional failure condition.
+A,Failure can stop or severely restrict total mill production or a plant-wide critical function.,2,MEDIUM,Defect almost failure,R2,2,YELLOW,A,Critical asset with advanced defect approaching functional failure.
+A,Failure can stop or severely restrict total mill production or a plant-wide critical function.,3,LOW,Defect,R5,5,YELLOW,A,Critical asset with an identified defect still at an earlier stage.
+B,"Failure can stop or materially restrict the area or a critical local system, without normally stopping the whole mill.",1,HIGH,Fault,R3,3,YELLOW,B and C,Area-critical asset with fault / imminent functional failure condition.
+B,"Failure can stop or materially restrict the area or a critical local system, without normally stopping the whole mill.",2,MEDIUM,Defect almost failure,R4,4,YELLOW,B and C,Area-critical asset with advanced defect approaching functional failure.
+B,"Failure can stop or materially restrict the area or a critical local system, without normally stopping the whole mill.",3,LOW,Defect,R7,7,BLUE,B and C,Area-critical asset with an identified defect still at an earlier stage.
+C,Failure has predominantly local impact and normally does not stop the area or the whole mill.,1,HIGH,Fault,R6,6,YELLOW,D and E,Local-impact asset with fault / imminent functional failure condition.
+C,Failure has predominantly local impact and normally does not stop the area or the whole mill.,2,MEDIUM,Defect almost failure,R8,8,BLUE,D and E,Local-impact asset with advanced defect approaching functional failure.
+C,Failure has predominantly local impact and normally does not stop the area or the whole mill.,3,LOW,Defect,R9,9,BLUE,D and E,Local-impact asset with an identified defect still at an earlier stage.

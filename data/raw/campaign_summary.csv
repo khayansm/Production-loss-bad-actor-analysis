@@ -1,0 +1,4 @@
+campaign_id,start_date,end_date,planned_shutdown_start,planned_shutdown_end,notes
+C1,2023-01-01,2023-11-15,2023-11-16,2023-11-30,Initial notification coverage.
+C2,2023-12-01,2024-11-15,2024-11-16,2024-11-30,Expanded route coverage and notification activity.
+C3,2024-12-01,2025-11-15,2025-11-16,2025-11-30,Broader early detection coverage; extract as of 2025-11-15.

@@ -9,3 +9,5 @@ Planned files:
 - `campaign_summary.csv` — summary information for the three operating campaigns used in the case.
 
 These datasets are synthetic and created exclusively for demonstration purposes. They do not reproduce confidential data from any real industrial facility.
+
+`maintenance_cost` represents synthetic maintenance costs in Brazilian reais (BRL).

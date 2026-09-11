@@ -2,176 +2,65 @@
 
 ## Industrial Reliability Case Study
 
-This case study demonstrates a production-loss-driven approach to industrial reliability.
+This case demonstrates a production-loss-driven approach to industrial reliability: identify where production was lost, which systems contributed most, and where reliability engineering should focus first.
 
-Rather than starting from individual equipment KPIs, the analysis begins with the operational impact: **where production was lost, which areas and systems contributed most to those losses, and which bad actors should receive engineering attention first.**
+> All data is synthetic and created exclusively for demonstration. It does not reproduce confidential data from an actual industrial facility.
 
-> **Note:** All data used in this project will be synthetic and created exclusively for demonstration purposes. The case does not reproduce confidential data from any real industrial facility.
+## Case Results
 
----
+- Total production loss: **106,546.52 ADt**
+- Loss events: **240** across **3 campaigns**
+- Four priority areas: **73.95% of loss**
+- Top four functional locations: **49.14% of loss**
+- Known untreated defect association: **52,643.04 ADt**
+- No-prior-detection association: **27,452.31 ADt**
+- Active maintenance backlog: **38**
+- R1 backlog: **7**
 
-## Business Problem
+These maintenance-history associations do not prove causality. Read the [full Case 1 executive summary](reports/case1_executive_summary.md) for definitions, limitations, discipline indicators and the proposed investigation roadmap.
 
-Industrial plants often have large volumes of maintenance, process and operational information but limited engineering resources to investigate every recurring issue.
+![Loss By Area Pareto](reports/figures/02_loss_by_area_pareto.png)
 
-The challenge is therefore not simply to identify failures.
+![Loss By Maintenance Context](reports/figures/05_loss_by_maintenance_context.png)
 
-It is to answer:
+![Top5 Opportunities](reports/figures/08_top5_opportunities.png)
 
-- Where is production being lost?
-- Which areas are responsible for the largest losses?
-- Which systems or events repeatedly affect plant performance?
-- Which bad actors should be prioritized?
-- What information is already available to support a deeper investigation?
-- Where should Reliability and Maintenance focus first?
+## Business Problem and Engineering Approach
 
----
-
-## Case Scenario
-
-The study will represent a continuous-process industrial plant across **three operating campaigns**.
-
-The dataset will include production-loss events distributed across different:
-
-- production areas;
-- systems;
-- equipment groups;
-- event categories;
-- failure or restriction mechanisms;
-- campaigns.
-
-Each event will contain information such as production loss, duration, operational impact and affected system.
-
-The scenario will intentionally contain a small number of recurring high-impact problems hidden among a larger number of lower-impact events.
-
-The objective is to identify these bad actors systematically.
-
----
-
-## Engineering Approach
-
-The analysis will follow the hierarchy:
+Industrial plants often have abundant maintenance and process information but limited engineering capacity. The question is where production loss is concentrated, which recurring issues matter most, and what evidence would support a deeper investigation.
 
 **Plant → Campaign → Area → System → Event → Bad Actor → Engineering Priority**
 
-The general methodology will be:
+Case 1 quantified losses, compared campaigns, built area/system Pareto views, ranked assets by operational impact, connected losses to prior maintenance history, and prioritized five system-level opportunities. The case covers a continuous-process pulp mill across three operating campaigns. Notification activity increased with detection coverage; no production improvement trend was imposed.
 
-1. Quantify total production losses.
-2. Compare losses between operating campaigns.
-3. Decompose losses by production area.
-4. Identify the systems responsible for the greatest impact.
-5. Evaluate recurrence and severity of events.
-6. Rank bad actors using operational impact.
-7. Select the highest-priority opportunities for deeper investigation.
-8. Evaluate what additional maintenance, automation and historian data would be required for each deep dive.
+The completed deliverables include a production-loss overview, area/system Pareto, bad-actor ranking, analytical maintenance context, discipline indicators, formal-risk backlog, Top 5 opportunities and an initial reliability roadmap. Detailed condition-monitoring and historian evidence remains a Case 2 data-availability requirement.
 
----
+## Key Principle and Scope
 
-## Main Analyses
+**Production impact** is the starting point. MTBF and MTTR may support later investigation, but they do not replace identifying where production is being lost.
 
-The case will include:
+This case does not perform detailed Root Cause Analysis, FMEA, RCM, predictive modeling, early-warning design or new instrumentation specification. These belong to subsequent case studies.
 
-- Total production-loss analysis
-- Production-loss comparison by campaign
-- Loss decomposition by area
-- Loss decomposition by system
-- Pareto analysis
-- Bad-actor ranking
-- Recurrence versus impact analysis
-- Event duration and production-impact analysis
-- Priority matrix
-- Identification of the Top 5 reliability opportunities
-- Initial data-availability assessment for subsequent investigation
+## Reproducibility
 
----
+The repository contains [raw synthetic datasets](data/raw/README.md), [reference definitions](data/reference/README.md) and a [processed analytical layer](data/processed/README.md). Reporting reads the processed layer without changing source data.
 
-## Key Principle
+```bash
+python scripts/build_case1_report.py
+```
 
-Traditional reliability indicators such as MTBF and MTTR may support the analysis, but they are **not the starting point of this case**.
-
-The main driver is:
-
-> **Production impact.**
-
-The objective is to prioritize engineering effort according to the problems that most affect plant performance.
-
----
-
-## Expected Deliverables
-
-At the end of the case, the analysis should provide:
-
-### 1. Production Loss Overview
-A clear view of where production has been lost across the three campaigns.
-
-### 2. Area and System Pareto
-Identification of the areas and systems responsible for the largest operational impact.
-
-### 3. Bad Actor Ranking
-A prioritized list considering loss magnitude, recurrence and operational relevance.
-
-### 4. Top 5 Reliability Opportunities
-The five systems or recurring problems that justify deeper engineering investigation.
-
-### 5. Initial Reliability Roadmap
-Recommended sequence for subsequent deep dives.
-
-### 6. Data Availability Assessment
-Initial definition of which maintenance, automation, process and historian information would be useful for investigating each prioritized bad actor.
-
----
-
-## What This Case Does Not Cover
-
-This case does not attempt to perform detailed Root Cause Analysis of the selected bad actors.
-
-It also does not yet develop:
-
-- asset health indicators;
-- calculated tags;
-- early-warning models;
-- FMEA;
-- RCM;
-- anomaly-detection models;
-- new instrumentation specifications.
-
-These activities belong to subsequent case studies.
-
----
+The report build requires Python 3 and Matplotlib. Data generation and the analytical build use the Python standard library. No seaborn or composite prioritization score is used.
 
 ## Connection to the Portfolio
 
-This project is the first part of a three-case reliability portfolio:
-
 ### Case 1 — Plant Production Loss & Bad Actor Analysis
-**Where are we losing production?**
-
-↓
+**Where are we losing production?** Completed: production-impact prioritization and management signals.
 
 ### Case 2 — Systemic Reliability Investigation
-**Why are we losing production?**
-
-↓
+**Why are we losing production?** Next: investigate one selected system, beginning with White Liquor Clarification.
 
 ### Case 3 — Reliability Monitoring & Management System
-**How can we detect, treat and prevent recurrence sustainably?**
-
----
-
-## Planned Tools
-
-The project may use:
-
-- Python
-- Pandas
-- Statistical analysis
-- Power BI
-- Industrial reliability concepts
-- Maintenance and operational performance analysis
-
-Technology will be used only where it supports the engineering objective.
-
----
+**How can we detect, treat and prevent recurrence sustainably?** Future: develop monitoring and management practices from validated mechanisms.
 
 ## Author
 
